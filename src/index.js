@@ -34,7 +34,15 @@ const getGifUrlFromData = (gifData) => {
   const gifUrl = gifData.data[randomIndex].images.original.url;
 
   return gifUrl;
-}
+};
+
+/**
+ * Displays the gif on the page
+ * @param {string} gifUrl The gifUrl of the gif to display
+ */
+const displayGif = (gifUrl) => {
+  image.src = gifUrl;
+};
 
 /**
  * Shows the error message on the page
@@ -48,6 +56,6 @@ const showError = () => {
  */
 const clearError = () => {
   errorDisplay.textContent = "";
-}
+};
 
-//console.log(await fetchGifData());
+
