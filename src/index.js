@@ -2,6 +2,7 @@ import "./styles.css";
 
 const image = document.getElementById("bunny-gif");
 const errorDisplay = document.getElementById("error-display");
+const bunnyButton = document.getElementById("bunny-button");
 
 /**
  * Fetches bunny gif data from Giphy
@@ -51,23 +52,24 @@ const showError = () => {
   errorDisplay.textContent = "Can't get a new GIF right now, try again later";
 };
 
+const gifData = await fetchGifData();
+
+bunnyButton.addEventListener("click", () => {
+  const gifUrl = getGifUrlFromData(gifData);
+  displayGif(gifUrl);
+});
+
 /**
- * Clears the error message from the page
+ * Loads the app with the given gif data
+ * @param {object} gifData The gif data
  */
-const clearError = () => {
-  errorDisplay.textContent = "";
-};
-
-const loadApp = async () => {
-  const gifData = await fetchGifData();
-
+const loadApp = (gifData) => {
   if (Object.keys(gifData).length === 0) {
     showError();
   } else {
-    clearError();
     const gifUrl = getGifUrlFromData(gifData);
     displayGif(gifUrl);
   }
 };
 
-loadApp();
+loadApp(gifData);
