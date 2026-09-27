@@ -13,3 +13,21 @@ body {
   align-items: center;
   gap: 200px;
 }
+
+#gif-container {
+  width: 600px;
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bunny-gif {
+  width: 500px;
+  height: auto;
+}
+
+#error-display {
+  color: red;
+}
