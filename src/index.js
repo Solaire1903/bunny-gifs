@@ -1,6 +1,7 @@
 import "./styles.css";
 
-let statusCode;
+const image = document.getElementById("bunny-gif");
+const errorDisplay = document.getElementById("error-display");
 
 /**
  * Fetches bunny gif data from Giphy
@@ -16,14 +17,26 @@ const fetchGifData = async () => {
 
   const response = await fetch(url);
   if (!response.ok) {
-    statusCode = response.status;
     return {};
-  };
+  }
 
-  statusCode = 200;
   const gifData = await response.json();
 
   return gifData;
 };
+
+/**
+ * Shows the error message on the page
+ */
+const showError = () => {
+  errorDisplay.textContent = "Can't get a new GIF right now, try again later";
+};
+
+/**
+ * Clears the error message from the page
+ */
+const clearError = () => {
+  errorDisplay.textContent = "";
+}
 
 //console.log(await fetchGifData());
