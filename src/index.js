@@ -26,6 +26,17 @@ const fetchGifData = async () => {
 };
 
 /**
+ * Gets the url from a random gif of the gif data
+ * @param {object} gifData The gif data
+ */
+const getGifUrlFromData = (gifData) => {
+  const randomIndex = Math.floor(Math.random() * gifData.data.length);
+  const gifUrl = gifData.data[randomIndex].images.original.url;
+
+  return gifUrl;
+}
+
+/**
  * Shows the error message on the page
  */
 const showError = () => {
