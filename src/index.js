@@ -58,4 +58,13 @@ const clearError = () => {
   errorDisplay.textContent = "";
 };
 
+const gifData = await fetchGifData();
 
+if (Object.keys(gifData).length === 0) {
+  showError();
+}
+else {
+  clearError();
+  const gifUrl = getGifUrlFromData(gifData);
+  displayGif(gifUrl);
+}
