@@ -1,1 +1,1 @@
-Template repository for webpack based projects
+Cute bunnies
